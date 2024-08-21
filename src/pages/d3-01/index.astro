@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Comp from "./comp.svelte";
+---
+
+<Layout title="d3教程">
+  <h1 class="text-center text-lg my-3">横轴</h1>
+  <div class="flex justify-center h-full w-full">
+    <Comp client:load client:only />
+  </div>
+</Layout>

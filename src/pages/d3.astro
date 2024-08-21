@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="d3教程">
+  <div class="flex justify-center h-full w-full items-center">
+    <div id="container" class="border w-1/2"></div>
+  </div>
+</Layout>
+<script>
+  /**
+   * 1. 导入d3的库
+   * 2.
+   */
+  import * as d3 from "d3";
+
+  // Declare the chart dimensions and margins.
+  //   尺寸和边距
+  const width = 640;
+  const height = 400;
+  const marginTop = 20;
+  const marginRight = 20;
+  const marginBottom = 30;
+  const marginLeft = 40;
+
+  // Declare the x (horizontal position) scale.
+  const x = d3
+    .scaleUtc()
+    .domain([new Date("2023-01-01"), new Date("2024-01-01")])
+    .range([marginLeft, width - marginRight]);
+
+  // Declare the y (vertical position) scale.
+  const y = d3
+    .scaleLinear()
+    .domain([0, 100])
+    .range([height - marginBottom, marginTop]);
+
+  // Create the SVG container.
+  const svg = d3.create("svg").attr("width", width).attr("height", height);
+
+  // Add the x-axis.
+  svg
+    .append("g")
+    .attr("transform", `translate(0,${height - marginBottom})`)
+    .call(d3.axisBottom(x));
+
+  // Add the y-axis.
+  svg
+    .append("g")
+    .attr("transform", `translate(${marginLeft},0)`)
+    .call(d3.axisLeft(y));
+
+  // Append the SVG element.
+  const container = document.getElementById("container")!;
+  container.append(svg.node()!);
+</script>
