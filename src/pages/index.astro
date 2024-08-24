@@ -1,9 +1,37 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import Layout from "@/layouts/Layout.astro";
+
+const linkList = [
+  {
+    href: "/d3",
+    content: "基本图表",
+  },
+  {
+    href: "/d3-01",
+    content: "横轴",
+  },
+  {
+    href: "/d3-02",
+    content: "纵轴",
+  },
+  {
+    href: "/d3-03",
+    content: "折线图",
+  },
+];
 ---
 
 <Layout title="Astro教程">
-	<p>首页</p>
-	<a href="/d3">d3</a>
+  <div class="px-4">
+    <h1 class="p-2 text-2xl">首页</h1>
+    <div class="flex gap-4">
+      {
+        linkList.map(({ href, content }) => (
+          <a {href} class="p-2 shadow-sm border-blue-100 border">
+            d3示例：{content}
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
-

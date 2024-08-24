@@ -1,0 +1,16 @@
+---
+import Layout from "./Layout.astro";
+import type { Props as BaseProps } from "./Layout.astro";
+
+export interface Props extends BaseProps {}
+import Back from "@/components/Back.astro";
+
+const { title } = Astro.props;
+---
+
+<Layout title="title">
+  <main class="p-4">
+    <Back />
+    <slot />
+  </main>
+</Layout>
