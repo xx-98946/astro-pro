@@ -34,7 +34,7 @@
       .domain([50, 100])
       .range([marginLeft, width - marginRight]);
 
-    d3.axisTop(bottomX)(
+    d3.axisBottom(bottomX)(
       d3
         .select(svg)
         .append("g")
