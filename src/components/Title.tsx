@@ -1,7 +1,7 @@
-import type { BaseProps } from "@/types";
+import type { JSX } from "solid-js/jsx-runtime";
 import { twMerge } from "tailwind-merge";
 
-interface Props extends BaseProps { }
+interface Props extends JSX.HTMLAttributes<HTMLHeadingElement> { }
 const baseClass = twMerge("text-3xl p-2 font-bold");
 
 export default function (props: Props) {
